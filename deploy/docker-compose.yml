@@ -1,0 +1,17 @@
+version: "3"
+services:
+  golang:
+    image: golang-billshare:1.3
+    build:
+      context: ..
+      dockerfile: build/docker/golang/Dockerfile
+    container_name: golang-bill-share-dev
+    tty: true
+    volumes:
+      - ../:/var/billshare
+    networks:
+      - golang_billshare
+
+networks:
+  golang_billshare:
+    driver: bridge
