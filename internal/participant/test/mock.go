@@ -9,8 +9,8 @@ import (
 // ParticipantMock is a Mock Object for testing purpose to avoid duplication in our test cases
 type ParticipantMock struct {
 	name        string
-	paidAmount  money.API
-	spentAmount money.API
+	paidAmount  money.Reader
+	spentAmount money.Reader
 }
 
 // NewParticipantMock creates a new instance of ParticipantMock with three default parameters
@@ -33,7 +33,7 @@ func (pm *ParticipantMock) SetName(name string) {
 }
 
 // AmountPaid returns amountPaid of mocked participant
-func (pm *ParticipantMock) AmountPaid() money.API {
+func (pm *ParticipantMock) AmountPaid() money.Reader {
 	return pm.paidAmount
 }
 
@@ -43,7 +43,7 @@ func (pm *ParticipantMock) SetAmountPaid(amount float64) {
 }
 
 // AmountSpent returns amountSpent of mocked participant
-func (pm *ParticipantMock) AmountSpent() money.API {
+func (pm *ParticipantMock) AmountSpent() money.Reader {
 	return pm.spentAmount
 }
 
@@ -58,7 +58,7 @@ func (pm *ParticipantMock) Owes(collection participant.Collection) participant.C
 }
 
 // Owned is the amount owned by participant
-func (pm *ParticipantMock) Owned() money.API {
+func (pm *ParticipantMock) Owned() money.Reader {
 	return pm.paidAmount
 }
 

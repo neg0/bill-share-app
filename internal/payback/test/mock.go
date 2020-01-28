@@ -9,9 +9,9 @@ import (
 )
 
 type PayBackMock struct {
-	payer  participant.ParticipantDescriber
-	payee  participant.ParticipantDescriber
-	amount money.API
+	payer  participant.Builder
+	payee  participant.Builder
+	amount money.Reader
 }
 
 func NewPayBackMock(payerName string, payeeName string, amount float64) *PayBackMock {
@@ -21,15 +21,15 @@ func NewPayBackMock(payerName string, payeeName string, amount float64) *PayBack
 	return &PayBackMock{payer, payee, money.NewMoney(amount)}
 }
 
-func (pbm *PayBackMock) Payee() participant.ParticipantDescriber {
+func (pbm *PayBackMock) Payee() participant.Builder {
 	return pbm.payee
 }
 
-func (pbm *PayBackMock) Payer() participant.ParticipantDescriber {
+func (pbm *PayBackMock) Payer() participant.Builder {
 	return pbm.payer
 }
 
-func (pbm *PayBackMock) Amount() money.API {
+func (pbm *PayBackMock) Amount() money.Reader {
 	return pbm.amount
 }
 

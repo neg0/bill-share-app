@@ -1,7 +1,7 @@
 package receipt
 
-// API is definition of receipt
-type API interface {
+// Reader is definition of receipt
+type Reader interface {
 	SpendersName() []string
 	SpendersCollection() map[string]float64
 	PayerName() string

@@ -92,7 +92,7 @@ var _ = Describe("Participant", func() {
 		})
 
 		It("Should owe nobody", func() {
-			collectionOfParticipants := []participant.ParticipantDescriber{
+			collectionOfParticipants := []participant.Builder{
 				NewParticipantMock("Neo", 0, 10.95),
 				NewParticipantMock("Morpheus", 0, 10.95),
 				NewParticipantMock("Trinity", 0, 10.95),
@@ -102,7 +102,7 @@ var _ = Describe("Participant", func() {
 		})
 
 		It("Should owe one person (Neo)", func() {
-			collectionOfParticipants := []participant.ParticipantDescriber{
+			collectionOfParticipants := []participant.Builder{
 				NewParticipantMock("Neo", 55.50, 10.95),
 				NewParticipantMock("Morpheus", 0, 10.95),
 				NewParticipantMock("Trinity", 0, 10.95),

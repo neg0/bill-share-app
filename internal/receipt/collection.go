@@ -1,7 +1,7 @@
 package receipt
 
 // Collection is an array of Receipt (Bill)
-type Collection []API
+type Collection []Reader
 
 // NewCollection will create a collection of Bill
 func NewCollection() Collection {
@@ -10,7 +10,7 @@ func NewCollection() Collection {
 }
 
 // Add will insert new receipt (Bill) inside the collection
-func (c *Collection) Add(receipt API) Collection {
+func (c *Collection) Add(receipt Reader) Collection {
 	*c = append(*c, receipt)
 	return *c
 }

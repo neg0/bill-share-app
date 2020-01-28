@@ -9,20 +9,20 @@ import (
 // Participant object
 type Participant struct {
 	name        string
-	amountPaid  money.API
-	amountSpent money.API
+	amountPaid  money.Reader
+	amountSpent money.Reader
 }
 
-// ParticipantDescriber is a definition of Participant
-type ParticipantDescriber interface {
+// Builder is a definition of Participant
+type Builder interface {
 	Name() string
-	AmountPaid() money.API
-	AmountSpent() money.API
+	AmountPaid() money.Reader
+	AmountSpent() money.Reader
 	SetName(string)
 	SetAmountPaid(float64)
 	SetAmountSpent(float64)
 	Owes(Collection) Collection
-	Owned() money.API
+	Owned() money.Reader
 	IsPayer() bool
 }
 
@@ -53,12 +53,12 @@ func (p *Participant) SetAmountSpent(amount float64) {
 }
 
 // AmountSpent returns amountPaid in Money ValueObject
-func (p *Participant) AmountPaid() money.API {
+func (p *Participant) AmountPaid() money.Reader {
 	return p.amountPaid
 }
 
 // AmountSpent returns amountSpent in Money ValueObject
-func (p *Participant) AmountSpent() money.API {
+func (p *Participant) AmountSpent() money.Reader {
 	return p.amountSpent
 }
 
@@ -76,7 +76,7 @@ func (p *Participant) Owes(participants Collection) Collection {
 }
 
 // Owned Money by the participant
-func (p *Participant) Owned() money.API {
+func (p *Participant) Owned() money.Reader {
 	return money.NewMoney(math.Abs(p.AmountPaid().Value() - p.AmountSpent().Value()))
 }
 

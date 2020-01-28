@@ -11,8 +11,8 @@ type Money struct {
 	currencySymbol string
 }
 
-// API is a definition of Money
-type API interface {
+// Reader is a definition of Money
+type Reader interface {
 	Value() float64
 	String() string
 }

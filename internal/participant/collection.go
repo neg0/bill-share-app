@@ -6,7 +6,7 @@ import (
 
 // Collection is an array of Participant
 // Implements Sort interface for sorting participants by amount paid and spent
-type Collection []ParticipantDescriber
+type Collection []Builder
 
 // NewCollection creates a new instance of Collection
 func NewCollection() Collection {
