@@ -1,0 +1,8 @@
+# Directories
+vendor/
+bin/
+
+
+# Files
+.env
+coverage.out
